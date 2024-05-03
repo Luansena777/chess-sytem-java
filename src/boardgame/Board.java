@@ -26,18 +26,18 @@ public class Board {
         if (!positionExists(row, column)) {
             throw new BoardException("Position not on the board");
         }
-        return pieces[row][column];
+        return this.pieces[row][column];
     }
 
-    public Piece piece(Position position) {
+    public Piece piece(Position position) { // Coloca peça
         if (!positionExists(position)) {
             throw new BoardException("Position not on the board");
         }
-        return pieces[position.getRow()][position.getColumn()];
+        return this.pieces[position.getRow()][position.getColumn()];
     }
 
     public void placePiece(Piece piece, Position position) { //Responsavel por colocar a peça numa posição no tabuleiro.
-        if (thereIsAPiece(position)) {
+        if (thereIsAPiece(position)) { //Testa se tem uma peça nesta posição.
             throw new BoardException("There is already a piece on position " + position);
         }
         this.pieces[position.getRow()][position.getColumn()] = piece;
@@ -45,14 +45,14 @@ public class Board {
     }
 
     public boolean positionExists(int row, int column) {
-        return row >= 0 && row < rows && column >= 0 && column < columns;
+        return row >= 0 && row < this.rows && column >= 0 && column < this.columns;
     }
 
-    public boolean positionExists(Position position) {  //Testa se a posição existe ou nao.
+    public boolean positionExists(Position position) {  //Vê se a posição existe ou nao.
         return positionExists(position.getRow(), position.getColumn());
     }
 
-    public boolean thereIsAPiece(Position position) { //Testa se tem uma peça nesta posição.
+    public boolean thereIsAPiece(Position position) { //Vê se tem uma peça nesta posição.
         if (!positionExists(position)) {
             throw new BoardException("Position not on the board");
         }
