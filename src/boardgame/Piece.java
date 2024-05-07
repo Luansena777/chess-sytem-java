@@ -12,14 +12,14 @@ public abstract class Piece {
         return board;
     }
 
-    public abstract boolean[][] PossibleMoves();
+    public abstract boolean[][] possibleMoves();
 
-    public boolean PossibleMove(Position position) { //retorna se pode mover essa peça dada uma posição.
-        return PossibleMoves()[position.getRow()][position.getColumn()];
+    public boolean possibleMove(Position position) { //retorna se pode mover essa peça dada uma posição.
+        return possibleMoves()[position.getRow()][position.getColumn()];
     }
 
     public boolean isThereAnyPossibleMove(){ //Retorna se a peça tem pelo menos algum movimento disponivel
-        boolean[][] mat = PossibleMoves();
+        boolean[][] mat = possibleMoves();
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat.length; j++) {
                 if (mat[i][j]){
